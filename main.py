@@ -41,8 +41,17 @@ def ask_for_a_number(force_valid_input):
             return number
     
 
+def ask_for_an_operator(force_valid_input):
+    while True:
+        user_input = input("Enter an operator: ")
+        is_operator = valid_operator(user_input)
+
+        if is_operator: return user_input
+        elif not force_valid_input: return None
+
+
 def main():
-    ask_for_a_number(True)
+    pass
 
 
 if __name__ == "__main__":
