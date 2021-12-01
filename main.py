@@ -54,30 +54,31 @@ def ask_for_an_operator(force_valid_input): #asks the user for an operator, can 
 
     
 def calc(operator, a, b):
-        x = is_number(a) 
-        y = is_number(b)
-        op = valid_operator(operator)  
 
-        if x == None or y == None or op == False:
+        if a == None or b == None or operator == False:
             return None
         try:
             match operator:
                 case '+':
-                    return x+y
+                    return a+b
                 case '-':
-                    return x-y
+                    return a-b
                 case '*':        
-                    return x*y 
+                    return a*b 
                 case '/':
-                    return x/y           
+                    return a/b           
         except ZeroDivisionError as err:
             print("You cannot divide by zero")
             return None
 
 
 def main():
-    pass
+    a = ask_for_a_number(True)
+    b = ask_for_a_number(True)
+    operator = ask_for_an_operator(True)
 
+    result = (calc(operator, a, b))
+    print(result)
 
 if __name__ == "__main__":
     main()
