@@ -6,18 +6,15 @@ def is_number(var): # Takes a string and tries to convert it to integer, float o
         is_input_float = "." in var
         if(is_input_float):
             try: # if this try block completes, that means the input is valid as a float type
-                print(float(var))
                 return float(var)
             except:
                 print("The value you've given cannot be converted to a number")
                 return None
         else:
             try: # if this try block completes, that means the input is valid as a integer type
-                print(int(var))
                 return int(var)
             except:
                 try: # if this try block completes, that means the input is valid as a complex type
-                    print(complex(var))
                     return complex(var)
                 except:
                     print("The value you've given cannot be converted to a number")
@@ -32,6 +29,15 @@ def valid_operator(op): # takes a string, if it's amongst the valid operator sym
     if op in ("+", "-", "*", "/"): return True
     return False
         
+
+def ask_for_a_number(force_valid_input):
+    while True:
+        user_input = input("Enter a number: ")
+        number = is_number(user_input)
+
+        if force_valid_input == False or number != None:
+            return number
+    
 
 def main():
     pass
