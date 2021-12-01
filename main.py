@@ -28,8 +28,14 @@ def is_number(var): # Takes a string and tries to convert it to integer, float o
         return None
 
 
+def valid_operator(op): # takes a string, if it's amongst the valid operator symbols, it returns true
+    if op in ("+", "-", "*", "/"): return True
+    return False
+        
+
 def main():
     pass
+
 
 if __name__ == "__main__":
     main()
