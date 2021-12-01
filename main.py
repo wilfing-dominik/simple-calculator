@@ -35,12 +35,14 @@ def ask_for_a_number(force_valid_input):
         user_input = input("Enter a number: ")
         number = is_number(user_input)
 
-        if force_valid_input == False or number != None:
+        is_input_valid = number != None
+
+        if not force_valid_input or is_input_valid:
             return number
     
 
 def main():
-    pass
+    ask_for_a_number(True)
 
 
 if __name__ == "__main__":
