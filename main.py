@@ -34,7 +34,6 @@ def ask_for_a_number(force_valid_input): #asks the user for an number, can be se
     while True:
         user_input = input("Enter a number: ")
         number = is_number(user_input)
-
         is_input_valid = number != None
 
         if not force_valid_input or is_input_valid:
@@ -47,14 +46,37 @@ def ask_for_an_operator(force_valid_input): #asks the user for an operator, can 
         is_operator = valid_operator(user_input)
 
         if is_operator: return user_input
+        
         elif not force_valid_input:
             print("Invalid operator")
             return None
         print("Invalid operator")
 
+    
+def calc(operator, a, b):
+        x = is_number(a) 
+        y = is_number(b)
+        op = valid_operator(operator)  
+
+        if x == None or y == None or op == False:
+            return None
+        try:
+            match operator:
+                case '+':
+                    return x+y
+                case '-':
+                    return x-y
+                case '*':        
+                    return x*y 
+                case '/':
+                    return x/y           
+        except ZeroDivisionError as err:
+            print("You cannot divide by zero")
+            return None
+
 
 def main():
-    ask_for_a_number(False)
+    pass
 
 
 if __name__ == "__main__":
