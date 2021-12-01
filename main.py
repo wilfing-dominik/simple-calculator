@@ -1,3 +1,5 @@
+import os
+
 def is_number(var): # Takes a string and tries to convert it to integer, float or complex type
     
     is_input_string = isinstance(var,str)
@@ -35,6 +37,8 @@ def ask_for_a_number(force_valid_input): #asks the user for an number, can be se
         user_input = input("Enter a number: ")
         number = is_number(user_input)
         is_input_valid = number != None
+        os.system('cls' if os.name == 'nt' else 'clear')
+
 
         if not force_valid_input or is_input_valid:
             return number
@@ -73,12 +77,14 @@ def calc(operator, a, b):
 
 
 def main():
-    a = ask_for_a_number(True)
-    b = ask_for_a_number(True)
-    operator = ask_for_an_operator(True)
+    while True:
+        a = ask_for_a_number(True)
+        b = ask_for_a_number(True)
+        operator = ask_for_an_operator(True)
 
-    result = (calc(operator, a, b))
-    print(result)
+        result = (calc(operator, a, b))
+        print(f"{a} {operator} {b} = {result}")
+
 
 if __name__ == "__main__":
     main()
