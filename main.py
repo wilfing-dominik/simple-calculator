@@ -30,7 +30,7 @@ def valid_operator(op): # takes a string, if it's amongst the valid operator sym
     return False
         
 
-def ask_for_a_number(force_valid_input):
+def ask_for_a_number(force_valid_input): #asks the user for an number, can be set to ask continuously if the input is invalid
     while True:
         user_input = input("Enter a number: ")
         number = is_number(user_input)
@@ -41,17 +41,20 @@ def ask_for_a_number(force_valid_input):
             return number
     
 
-def ask_for_an_operator(force_valid_input):
+def ask_for_an_operator(force_valid_input): #asks the user for an operator, can be set to ask continuously if the input is invalid
     while True:
         user_input = input("Enter an operator: ")
         is_operator = valid_operator(user_input)
 
         if is_operator: return user_input
-        elif not force_valid_input: return None
+        elif not force_valid_input:
+            print("Invalid operator")
+            return None
+        print("Invalid operator")
 
 
 def main():
-    pass
+    ask_for_a_number(False)
 
 
 if __name__ == "__main__":
